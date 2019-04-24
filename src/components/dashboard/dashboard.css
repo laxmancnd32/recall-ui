@@ -1,9 +1,8 @@
 .dashboard-component {
     padding-top: 30px;
-    padding: 2rem;
 }
 .common-total-info-row {
-    padding: 0 10rem 0 10rem;
+    padding: 0 5rem 0 5rem;
 }
 .common-total-info-col {
     text-align: center;
@@ -12,9 +11,9 @@
     display: inline-block;
     height: 100px;
     text-align:center;
-    background-color: burlywood;
+    background-color: #57A0D3;
     border-radius: 5px;
     padding-top: 40px;
-    width: 300px;
+    width: 400px;
 }
 
