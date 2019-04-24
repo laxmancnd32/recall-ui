@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import homePageReducer from '../components/home-page/connect/home-page-reducer';
+import dashboardReducer from '../components/dashboard/connect/dashboard-reducer';
 
 export default combineReducers({
-    homePageReducer
+    dashboardReducer
 });

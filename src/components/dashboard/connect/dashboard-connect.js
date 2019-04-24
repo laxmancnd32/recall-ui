@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { select } from './home-page-selector';
-import * as homePageActions from './home-page-actions';
+import { select } from './dashboard-selector';
+import * as dashboardActions from './dashboard-actions';
 import { withRouter } from 'react-router';
-import HomePage from '../home-page-component';
+import Dashboard from '../dashboard-component';
 
 const mapDispatchToProps = dispatch => {
-    const actions = bindActionCreators(homePageActions, dispatch);
+    const actions = bindActionCreators(dashboardActions, dispatch);
 
     return { actions };
 }
@@ -15,5 +15,5 @@ export default withRouter(
     connect(
         select,
         mapDispatchToProps
-    )(HomePage)
+    )(Dashboard)
 );
