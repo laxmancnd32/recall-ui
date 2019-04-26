@@ -6,9 +6,7 @@ class Interviews extends Component {
   render() {
     return (
         <div>
-          <PageContainerComponent>
             Interviews Page
-          </PageContainerComponent>
         </div>
     );
   }

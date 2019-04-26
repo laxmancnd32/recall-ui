@@ -6,9 +6,7 @@ class Jobs extends Component {
   render() {
     return (
         <div className="jobs-component">
-          <PageContainerComponent>
             Jobs Page
-          </PageContainerComponent> 
         </div>
     );
   }
