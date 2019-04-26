@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import JobsTableComponent from './components/jobs-table-component';
 import ModalComponent from './components/modal-component';
-import { fetchJSON } from '../../service/services'
 import LoaderComponent from '../loader';
 import "./jobs.scss";
 
@@ -17,33 +16,41 @@ class Jobs extends Component {
       isLoading: false,
       tableData: [
         {
-        "job_pub_id": "JOB0000001",
-        "title": "Python Developer",
-        "description": "Dev",
-        "status": true,
-        "total_candidates": 0
-        },
-        {
-          "job_pub_id": "yuwefwe",
-          "title": "React Developer",
+          "job_pub_id": "JOB0000001",
+          "title": "Python Developer",
           "description": "Dev",
           "status": true,
           "total_candidates": 0
           },
           {
             "job_pub_id": "yuwefwe",
-            "title": "selinium Tester",
-            "description": "tester",
+            "title": "React Developer",
+            "description": "Dev",
             "status": true,
             "total_candidates": 0
-            }
+            },
+            {
+              "job_pub_id": "yuwefwe",
+              "title": "selinium Tester",
+              "description": "tester",
+              "status": true,
+              "total_candidates": 0
+              }
         ]
     };
   }
 
   componentDidMount() {
-    const tableDataUrl = '';
-    fetchJSON(tableDataUrl, 'GET');
+    // const tableDataUrl = 'http://35.225.151.186/api/v1/jobs';
+
+    // fetch(tableDataUrl,{
+    //   method: 'GET'
+    // }).then(res => res.json()
+    // ).then(response=>{
+    //   console.log(response);
+    //   this.setState({tableData: response});
+    // });
+
   }
 
   handleCloseModal = () => {
@@ -71,7 +78,6 @@ class Jobs extends Component {
       jobTitle,
       jobDescription
     }
-
   };
 
   render() {
