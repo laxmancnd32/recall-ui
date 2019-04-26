@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PageContainerComponent from '../page-container';
 
 class Interviews extends Component {
 

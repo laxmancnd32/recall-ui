@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
 import TotalInterviews from './components/total-interviews-component';
-import PageContainerComponent from '../page-container';
 import "./dashboard.scss";
 
 
