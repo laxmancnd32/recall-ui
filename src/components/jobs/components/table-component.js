@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Table } from 'react-bootstrap';
-
+import './table.css'
 class TableComponent extends Component {
 
   render() {
@@ -28,8 +28,8 @@ class TableComponent extends Component {
             }
         ];
     return (
-     <div className="table-component">
-        <Table striped bordered hover>
+     <div className="table-component ">
+        <Table  striped bordered hover>
             <thead>
                 <tr>
                     <th>#</th>
