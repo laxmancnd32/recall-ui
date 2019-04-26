@@ -11,7 +11,21 @@ class TableComponent extends Component {
         "description": "Dev",
         "status": true,
         "total_candidates": 0
-        }
+        },
+        {
+          "job_pub_id": "yuwefwe",
+          "title": "React Developer",
+          "description": "Dev",
+          "status": true,
+          "total_candidates": 0
+          },
+          {
+            "job_pub_id": "yuwefwe",
+            "title": "selinium Tester",
+            "description": "tester",
+            "status": true,
+            "total_candidates": 0
+            }
         ];
     return (
      <div className="table-component">
@@ -29,6 +43,7 @@ class TableComponent extends Component {
             <tbody>
               {tableData.map((data, index) => {
                 const { job_pub_id, title, description, status, total_candidates } = data;
+                const statusData = status? 'open': 'closed';
                 return (
                   <Fragment>
                     <tr key={index}>
@@ -36,7 +51,7 @@ class TableComponent extends Component {
                       <td>{job_pub_id}</td>
                       <td>{title}</td>
                       <td>{description}</td>
-                      <td>{status}</td>
+                      <td>{statusData}</td>
                       <td>{total_candidates}</td>
                     </tr>
                   </Fragment>

@@ -26,7 +26,7 @@ class SideBarComponent extends Component {
               </NavItem>
               <NavItem eventKey="jobs">
                 <NavIcon>
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                  <i className="fa fa-thumbs-up" aria-hidden="true"></i>
                 </NavIcon>
                 <NavText>
                   Jobs
@@ -34,7 +34,7 @@ class SideBarComponent extends Component {
               </NavItem>
               <NavItem eventKey="interview-pool">
                 <NavIcon>
-                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <i className="fa fa-suitcase" aria-hidden="true"></i>
                 </NavIcon>
                 <NavText>
                   Interviewers
