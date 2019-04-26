@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './loader.scss';
 
-
-class Loadercomponent extends Component {
+class LoaderComponent extends Component {
 
   render() {
     return (
@@ -13,4 +13,4 @@ class Loadercomponent extends Component {
   }
 }
 
-export default Loadercomponent;
+export default LoaderComponent;

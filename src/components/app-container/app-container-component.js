@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SideBarComponent from '../sidebar'
+import SideBarComponent from '../sidebar/sidebar-component';
 import PageContainerComponent from '../page-container';
 import HeaderComponent from '../Header';
 class AppContainer extends Component {
