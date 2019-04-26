@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import TableComponent from './components/table-component';
 import ModalComponent from './components/modal-component';
 import { fetchJSON } from '../../service/services'
+import LoaderComponent from '../loader';
 import "./jobs.scss";
 
 class Jobs extends Component {
@@ -13,7 +14,7 @@ class Jobs extends Component {
       showModal: false,
       jobTitle: '',
       jobDescription: '',
-
+      isLoading: false
     };
   }
 
@@ -51,16 +52,20 @@ class Jobs extends Component {
   };
 
   render() {
-    const { showModal } = this.state;
-    return (
+    const { showModal, isLoading } = this.state;
+    if(isLoading){
+      return (<LoaderComponent />);
+    }else {
+      return (
         <div className="jobs-component">
-         <Button variant="primary modal-popup-button" onClick={this.handleOpenModal}>
-          Post a job
-        </Button>
-        <ModalComponent showModal={showModal} handleCloseModal={this.handleCloseModal} handleInputChange={this.handleInputChange} handleSaveClick={this.handleSaveClick} />
-        <TableComponent />
+          <Button variant="primary modal-popup-button" onClick={this.handleOpenModal}>
+            Post a job
+          </Button>
+          <ModalComponent showModal={showModal} handleCloseModal={this.handleCloseModal} handleInputChange={this.handleInputChange} handleSaveClick={this.handleSaveClick} />
+          <TableComponent />
         </div>
     );
+    }
   }
 }
 
