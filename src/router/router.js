@@ -10,7 +10,6 @@ import {
   import Interviews from '../components/interviews';
   import PageNotFound from '../components/page-not-found/page-not-found-component';
   import AppContainer from '../components/app-container';
-
   const ApplicationRouter = () => {
     return (
       <Router history={createBrowserHistory()}>
