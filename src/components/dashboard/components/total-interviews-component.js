@@ -23,8 +23,8 @@ class TotalInterviews extends Component {
               <span>Applied Jobs</span>
             </div>
           </div>
-        </div>
-      </div>
+        </div>        
+      </div>      
     );
   }
 }
