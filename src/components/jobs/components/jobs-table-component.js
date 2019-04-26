@@ -4,8 +4,8 @@ import './table.css'
 const JobsTableComponent = props => {
     const { tableData } = props;
     return (
-     <div className="table-component ">
-        <Table  striped bordered hover>
+     <div className="table-component padding">
+        <Table className="table table-borderless">
             <thead>
                 <tr>
                     <th>#</th>

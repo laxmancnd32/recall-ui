@@ -6,14 +6,11 @@ class HeaderComponent extends Component {
   render() {
     return (
         <div>
-            <Navbar bg="primary" variant="dark" className="ctrlwidth">
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar className="ctrlwidth" id="header-nav">
+                <Navbar.Brand href="#home" id="brand-name">Recall</Navbar.Brand>
                 <Nav className="mr-auto">
                 </Nav>
-                <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-light">Search</Button>
-                </Form>
+                <a href="" className="header-link"><i class="fa fa-power-off fa-fw"></i> Logout</a>
             </Navbar>
         </div>
     );

@@ -1,20 +1,13 @@
 .dashboard-sidebar{
 width: 250px;
-height: 600px;
+height: 1000px;
  overflow-y: hidden; 
- background-image: linear-gradient(to right, #aea9fe, #e1b8fe);
-}
-.dashboard-sidebar a{
-  color: #fff
-}
-
-.dashboard-sidebar .dashboard-menu ul li:hover a, .dashboard-sidebar .dashboard-menu ul li.active a {
-  color:#fff;
-  background-color:transparent;
-  text-decoration: none;
-}
-
-.dashboard-sidebar .dashboard-menu ul li {
-  padding: 20px 0;
-  border-bottom: 1px solid #a1a5fc;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#f7f9fc));
+  background-image: -webkit-linear-gradient(left, #ffffff, #f7f9fc);
+  background-image: -o-linear-gradient(left, #ffffff, #f7f9fc);
+  background-image: linear-gradient(to right, #ffffff, #f7f9fc);
+  padding: 20px;
+  -webkit-box-shadow: 3px -1px 5px -3px rgba(0,0,0,0.33);
+  -moz-box-shadow: 3px -1px 5px -3px rgba(0,0,0,0.33);
+  box-shadow: 3px -1px 5px -3px rgba(0,0,0,0.33);
 }
