@@ -1,3 +1,3 @@
-import AppContainer from './app-container-component';
+import AppContainer from './connect/app-container-connect';
 
 export default AppContainer;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBarComponent from '../navbar';
+import SideBarComponent from '../sidebar'
 
 class AppContainer extends Component {
 
@@ -7,7 +7,7 @@ class AppContainer extends Component {
     const { children } = this.props;
     return (
       <div className='app-container'>
-        <NavBarComponent />
+        <SideBarComponent history={this.props.history}/>        
         {children}
       </div>
     );

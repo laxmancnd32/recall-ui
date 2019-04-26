@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import PageContainerComponent from '../page-container';
 
 class Jobs extends Component {
 
   render() {
     return (
-        <div>JOBS</div>
+        <div className="jobs-component">
+          <PageContainerComponent>
+            Jobs Page
+          </PageContainerComponent> 
+        </div>
     );
   }
 }

@@ -3,7 +3,8 @@ import { Row, Col } from 'react-bootstrap';
 import TotalInterviews from './components/total-interviews-component';
 import TotalJobs from './components/total-jobs-component';
 import TotalScreenedCandidates from './components/total-screened-candidates-component';
-import "./dashboard.css";
+import PageContainerComponent from '../page-container';
+import "./dashboard.scss";
 
 
 const initialState = {
@@ -26,17 +27,19 @@ class Dashboard extends Component {
     const props = this.props;
     return (
       <div className='dashboard-component'>
-        <Row className='common-total-info-row'>
-          <Col className='common-total-info-col'>
-            <TotalJobs />
-          </Col>
-          <Col className='common-total-info-col'>
-            <TotalScreenedCandidates />
-          </Col>
-          <Col className='common-total-info-col'>
-            <TotalInterviews />
-          </Col>
-        </Row>
+        <PageContainerComponent>
+          <Row className='common-total-info-row'>
+            <Col className='common-total-info-col'>
+              <TotalJobs />
+            </Col>
+            <Col className='common-total-info-col'>
+              <TotalScreenedCandidates />
+            </Col>
+            <Col className='common-total-info-col'>
+              <TotalInterviews />
+            </Col>
+          </Row>
+        </PageContainerComponent>
       </div>
     );
   }
