@@ -12,18 +12,18 @@ import {
   import AppContainer from '../components/app-container';
 
   const ApplicationRouter = () => {
-    return (
-      <Router history={createBrowserHistory()}>
-        <AppContainer history = {createBrowserHistory()}>
-          <Switch>
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/jobs" component={Jobs} />
-            <Route exact path="/interview-pool" component={Interviews} />
-            <Route component={PageNotFound} />
-          </Switch>
-        </AppContainer>
-      </Router>
-    );
+      return (
+        <Router history={createBrowserHistory()}>
+          <AppContainer history = {createBrowserHistory()}>
+            <Switch>
+              <Route path="/dashboard" component={Dashboard} />
+              <Route exact path="/jobs" component={Jobs} />
+              <Route exact path="/interview-pool" component={Interviews} />
+              <Route component={PageNotFound} />
+            </Switch>
+          </AppContainer>
+        </Router>
+      );
   };
 
   export default ApplicationRouter;
