@@ -1,4 +1,9 @@
 
+.padding{
+    padding: 20px;
+    margin-left: 50px;
+}
+
 tbody {
 	height: 100%;
 }

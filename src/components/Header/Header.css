@@ -1,5 +1,6 @@
 .ctrlwidth{
-    padding: 20px;
-    margin-left: 40px;
-    padding-left: 150px;
+    height:70px;
+}
+.bg-primary {
+    background-image: linear-gradient(to right, #45ace7, #45ace759);
 }

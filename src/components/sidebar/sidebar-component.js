@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import 'font-awesome/css/font-awesome.min.css';
-
+import './sidebar.scss'
 class SideBarComponent extends Component {
 
     routeToPage = route => {
@@ -11,39 +9,22 @@ class SideBarComponent extends Component {
     };
 
     render() {
-        return (
-            <div className='nav-bar-component'>
-                <SideNav onSelect={selected => this.routeToPage('/'+selected)}>
-                  <SideNav.Toggle />
-                    <SideNav.Nav defaultSelected="dashboard">
-                      <NavItem eventKey="dashboard">
-                        <NavIcon>
-                          <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                          Dashboard
-                        </NavText>
-                      </NavItem>
-                      <NavItem eventKey="jobs">
-                        <NavIcon>
-                          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
-                        </NavIcon>
-                        <NavText>
-                          Jobs
-                        </NavText>
-                      </NavItem>
-                      <NavItem eventKey="interview-pool">
-                        <NavIcon>
-                            <i className="fa fa-suitcase" aria-hidden="true"></i>
-                        </NavIcon>
-                        <NavText>
-                          Interviewers
-                        </NavText>
-                      </NavItem>
-                  </SideNav.Nav>
-                </SideNav>
-            </div>
-        );
+      return (
+
+        <div className="dashboard-sidebar">
+          <div className="user-info">
+          </div>
+          <div className="dashboard-menu">
+            <ul>
+              <li className="active"><i className="fa fa-fw fa-home text-white"/><a href="/dashboard">Dashboard</a></li>
+              <li><i className="fa fa-fw fa-thumbs-up text-white" aria-hidden="true"></i><a href="/jobs">Jobs</a></li>
+              <li><i className="fa fa-fw fa-suitcase text-white" aria-hidden="true"></i><a href="/interview-pool">Interviwers</a></li>
+            
+            </ul>
+
+         
+          </div></div>
+      );
     }
 };
 

@@ -8,12 +8,24 @@ class AppContainer extends Component {
     const { children, history } = this.props;
     return (
       <div className='app-container'>
-      <HeaderComponent/>
-        <SideBarComponent history={history}/>     
-        <PageContainerComponent history={history}>
-          {children}
-        </PageContainerComponent>   
+      <div className="row">
+      <div className="col-md-12">
+            <HeaderComponent/>
+          </div>
       </div>
+        <div className="row">
+        <div className="col-md-2">
+            <SideBarComponent/>
+          </div>
+          <div className="col-md-10">
+             
+            <PageContainerComponent history={history}>
+                {children}
+            </PageContainerComponent>   
+          </div>
+        </div>    
+      </div>
+
     );
   }
 }

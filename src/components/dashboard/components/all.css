@@ -34,7 +34,7 @@
 	background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#f7f9fc));
 	background-image: -webkit-linear-gradient(left, #ffffff, #f7f9fc);
 	background-image: -o-linear-gradient(left, #ffffff, #f7f9fc);
-	background-image: linear-gradient(to right, #ffffff, #f7f9fc);
+	
 	padding: 20px;
 }
 
@@ -104,35 +104,22 @@
 	list-style: none;
 }
 
-.dashboard-sidebar .dashboard-menu ul li {
-	padding: 10px 0;
-}
-
 .dashboard-sidebar .dashboard-menu ul li i {
 	color: #aaa;
 	width: 25px;
 }
 
 .dashboard-sidebar .dashboard-menu ul li a {
-	font-family: "Poppins", sans-serif;
+	/* font-family: "Poppins", sans-serif;
 	color: #6f7484;
 	font-weight: 400;
-	font-size: 1.4rem;
+	font-size: 1.4rem; */
 	padding: 5px 10px;
 }
 
 .dashboard-sidebar .dashboard-menu ul li:hover i,
 .dashboard-sidebar .dashboard-menu ul li.active i {
 	color: #246df8;
-}
-
-.dashboard-sidebar .dashboard-menu ul li:hover a,
-.dashboard-sidebar .dashboard-menu ul li.active a {
-	color: #246df8;
-	background-image: -webkit-gradient(linear, left top, right top, from(rgba(36, 109, 248, 0.2)), to(rgba(36, 109, 248, 0)));
-	background-image: -webkit-linear-gradient(left, rgba(36, 109, 248, 0.2), rgba(36, 109, 248, 0));
-	background-image: -o-linear-gradient(left, rgba(36, 109, 248, 0.2), rgba(36, 109, 248, 0));
-	background-image: linear-gradient(to right, rgba(36, 109, 248, 0.2), rgba(36, 109, 248, 0));
 }
 
 .dashboard-sidebar .dashboard-menu ul.delete {
@@ -308,7 +295,6 @@
 
 .user-statistic-block .user-statistic span {
 	font-size: 20px;
-	font-family: "Poppins", sans-serif;
     font-weight: 500;
     margin-left: 20px; 
     
