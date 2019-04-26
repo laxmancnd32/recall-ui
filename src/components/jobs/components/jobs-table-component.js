@@ -1,32 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Table } from 'react-bootstrap';
 
-class TableComponent extends Component {
-
-  render() {
-      const tableData = [
-        {
-        "job_pub_id": "JOB0000001",
-        "title": "Python Developer",
-        "description": "Dev",
-        "status": true,
-        "total_candidates": 0
-        },
-        {
-          "job_pub_id": "yuwefwe",
-          "title": "React Developer",
-          "description": "Dev",
-          "status": true,
-          "total_candidates": 0
-          },
-          {
-            "job_pub_id": "yuwefwe",
-            "title": "selinium Tester",
-            "description": "tester",
-            "status": true,
-            "total_candidates": 0
-            }
-        ];
+const JobsTableComponent = props => {
+    const { tableData } = props;
     return (
      <div className="table-component">
         <Table striped bordered hover>
@@ -62,7 +38,6 @@ class TableComponent extends Component {
         </Table>
        </div>
     );
-  }
 }
 
-export default TableComponent;
+export default JobsTableComponent;

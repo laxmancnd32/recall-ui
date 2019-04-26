@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import TableComponent from './components/table-component';
+import JobsTableComponent from './components/jobs-table-component';
 import ModalComponent from './components/modal-component';
 import { fetchJSON } from '../../service/services'
 import LoaderComponent from '../loader';
@@ -14,7 +14,30 @@ class Jobs extends Component {
       showModal: false,
       jobTitle: '',
       jobDescription: '',
-      isLoading: false
+      isLoading: false,
+      tableData: [
+        {
+        "job_pub_id": "JOB0000001",
+        "title": "Python Developer",
+        "description": "Dev",
+        "status": true,
+        "total_candidates": 0
+        },
+        {
+          "job_pub_id": "yuwefwe",
+          "title": "React Developer",
+          "description": "Dev",
+          "status": true,
+          "total_candidates": 0
+          },
+          {
+            "job_pub_id": "yuwefwe",
+            "title": "selinium Tester",
+            "description": "tester",
+            "status": true,
+            "total_candidates": 0
+            }
+        ]
     };
   }
 
@@ -52,7 +75,7 @@ class Jobs extends Component {
   };
 
   render() {
-    const { showModal, isLoading } = this.state;
+    const { showModal, isLoading, tableData } = this.state;
     if(isLoading){
       return (<LoaderComponent />);
     }else {
@@ -62,7 +85,7 @@ class Jobs extends Component {
             Post a job
           </Button>
           <ModalComponent showModal={showModal} handleCloseModal={this.handleCloseModal} handleInputChange={this.handleInputChange} handleSaveClick={this.handleSaveClick} />
-          <TableComponent />
+          <JobsTableComponent tableData={tableData}/>
         </div>
     );
     }
