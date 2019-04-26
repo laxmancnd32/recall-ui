@@ -16,9 +16,9 @@ class SideBarComponent extends Component {
           </div>
           <div className="dashboard-menu">
             <ul>
-              <li className="active"><i className="fa fa-fw fa-home text-white"/><a href="/dashboard">Dashboard</a></li>
-              <li><i className="fa fa-fw fa-thumbs-up text-white" aria-hidden="true"></i><a href="/jobs">Jobs</a></li>
-              <li><i className="fa fa-fw fa-suitcase text-white" aria-hidden="true"></i><a href="/interview-pool">Interviwers</a></li>
+              <li className="active"><i className="fa fa-fw fa-home"/><a href="/dashboard">Dashboard</a></li>
+              <li><i className="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><a href="/jobs">Jobs</a></li>
+              <li><i className="fa fa-fw fa-suitcase" aria-hidden="true"></i><a href="/interview-pool">Interviwers</a></li>
             
             </ul>
 

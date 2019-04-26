@@ -4,3 +4,22 @@
 .bg-primary {
     background-image: linear-gradient(to right, #45ace7, #45ace759);
 }
+
+#brand-name {
+    color: #246df8;
+    padding-left: 30px;
+    font-weight: bold;
+    font-size: 25px;
+}
+#header-nav {
+    -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    background: #ffffff;
+}
+
+#header-nav .header-link{
+    color: #6f7484;
+    font-size: 13px;
+    margin-right: 23px;
+}
