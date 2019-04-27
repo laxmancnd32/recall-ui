@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Table,Button } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 import { baseUrl } from '../../base-url';
 import LoaderComponent from '../loader';
 import "./listCandidate.scss";
@@ -43,6 +43,11 @@ class List extends Component {
     })
   }
 
+  handleCheckboxChange = () => {
+    const checkBox = document.getElementById("myCheck");
+
+  };
+
   render() {
     const { isLoading, candidatesData } = this.state;
     if(isLoading){
@@ -67,6 +72,9 @@ class List extends Component {
                         <div className="location"><i class="fa fa-envelope fa-fw"></i> {email}</div>
                         <div className="work-post"><i class="fa fa-book fa-fw"></i> {skills}</div>
                       </div>
+                    </div>
+                    <div className="checkbox-div col-1">
+                      <input type="checkbox" id="myCheck" onclick="handleCheckboxChange()"/>
                     </div>
                     <div className="col-3 text-right">
                       <Button className="view-resume-button">
