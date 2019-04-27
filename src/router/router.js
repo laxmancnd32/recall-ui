@@ -20,7 +20,7 @@ import {
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/jobs" component={Jobs} />
               <Route exact path="/interview-pool" component={Interviews} />
-              <Route exact path="/interview-status" component={InterviewStatus} />
+              <Route exact path="/interview-status/:job_id" component={InterviewStatus} />
               <Route exact path="/list-candidates/:job_id" component={ListCandidates} />
               <Route component={PageNotFound} />
             </Switch>

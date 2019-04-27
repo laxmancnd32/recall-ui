@@ -78,7 +78,7 @@ class List extends Component {
     }).then(response => { 
         const { message = '' } = response;
         if(message === 'Added'){
-          history.push({ pathname: '/interview-status'});
+          history.push({ pathname: '/interview-status/'+job_id});
         }
     });
   };
