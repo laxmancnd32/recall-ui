@@ -79,7 +79,7 @@ class Jobs extends Component {
 
   redirectToInterviews = job_id => {
     const { history } = this.props;
-    history.push({ pathname: '/list-candidates/'+job_id});
+    // history.push({ pathname: '/list-candidates/'+job_id});
   };
   render() {
     const { showModal, isLoading, tableData } = this.state;

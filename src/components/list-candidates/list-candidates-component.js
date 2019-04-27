@@ -100,6 +100,7 @@ class List extends Component {
               const skills = programming_languages.join();
               const phone = phone_number.join();
               const trimmedName = name.trim();
+              const resumeDownload = baseUrl+'/t30hack/resume-pool/'+cv_filename;
               return(
                 <Fragment>
                   <div className="shadow p-3 mt-2 mb-2 bg-white rounded row candidate-row align-items-center">
@@ -121,7 +122,7 @@ class List extends Component {
                     </div>
                     <div className="col-3 text-right">
                       <Button>
-                        <a href="#">View Resume</a>
+                        <a href={resumeDownload}>View Resume</a>
                       </Button>
                     </div>
                   </div>
