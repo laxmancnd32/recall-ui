@@ -53,27 +53,29 @@ class Jobs extends Component {
   };
   handleSaveClick = () => {
     const { history } = this.props;
-    const { jobTitle, jobDescription } = this.state;
-    const payload = {
-      'title': jobTitle,
-      'description': jobDescription
-    }
-    const saveJobUrl = baseUrl+"/api/v1/jobs";
-    fetch(saveJobUrl, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify(payload)
-    }).then(res=> {
-      return res.json();
-    }).then(response => {
-      if(response) {
-        console.log(response);
-        const { job_id } = response;
-        history.push({pathname:'/list-candidates/'+job_id, job_id});
+    const { jobTitle = '', jobDescription = '' } = this.state;
+    if(jobTitle !== '' && jobDescription!== '') {
+      const payload = {
+        'title': jobTitle,
+        'description': jobDescription
       }
-    })
+      const saveJobUrl = baseUrl+"/api/v1/jobs";
+      fetch(saveJobUrl, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(payload)
+      }).then(res=> {
+        return res.json();
+      }).then(response => {
+        if(response) {
+          console.log(response);
+          const { job_id } = response;
+          history.push({pathname:'/list-candidates/'+job_id, job_id});
+        }
+      })
+    }
   };
 
   render() {
