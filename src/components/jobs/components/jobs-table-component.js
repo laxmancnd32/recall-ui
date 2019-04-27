@@ -5,7 +5,7 @@ const JobsTableComponent = props => {
     const { tableData } = props;
     return (
      <div className="table-component padding">
-        <Table className="table table-borderless">
+        <Table className="table">
             <thead>
                 <tr>
                     <th>#</th>

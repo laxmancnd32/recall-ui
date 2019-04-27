@@ -18,7 +18,7 @@ class SideBarComponent extends Component {
             <ul>
               <li ><i className="fa fa-fw fa-home"/><a href="/dashboard">Dashboard</a></li>
               <li><i className="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><a href="/jobs">Jobs</a></li>
-              <li><i className="fa fa-fw fa-suitcase" aria-hidden="true"></i><a href="/interview-pool">Interviwers</a></li>
+              <li><i className="fa fa-fw fa-suitcase" aria-hidden="true"></i><a href="/interview-pool">Interviewers</a></li>
             </ul>
           </div></div>
       );
