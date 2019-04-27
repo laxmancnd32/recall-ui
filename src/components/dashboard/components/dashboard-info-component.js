@@ -1,5 +1,6 @@
 import React from 'react';
 import './all.css';
+import Chart from '../../Chart';
 const DashBoardInfo = props => {
     const { dashboardData } = props;
     const totalJobs = dashboardData.find(data => data.type === 'job');
@@ -27,8 +28,14 @@ const DashBoardInfo = props => {
               <span>Selected Candidates</span>
             </div>
           </div>
-        </div>        
-      </div>      
+        </div>
+        <div className="row">
+        <div className="col-md-12 offset-md-1">
+        <Chart/>
+        </div>
+      </div>           
+      </div> 
+        
     );
 }
 
