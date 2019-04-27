@@ -70,7 +70,6 @@ class Jobs extends Component {
         return res.json();
       }).then(response => {
         if(response) {
-          console.log(response);
           const { job_id } = response;
           history.push({pathname:'/list-candidates/'+job_id, job_id});
         }

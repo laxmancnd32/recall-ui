@@ -9,6 +9,7 @@ class List extends Component {
 
     this.state = {
       isLoading: true,
+      isChecked: false,
       candidatesData: [
         {
         'recent_company': 'no experience',
@@ -24,7 +25,7 @@ class List extends Component {
         'phone_number': '9148405826',
         'skills': 'react, redux, php',
         'name': 'Rishabh Mishra',
-        'cv': 'file.pdf'
+        'cv': 'file191.pdf'
       }
     ]
     };
@@ -43,6 +44,19 @@ class List extends Component {
     })
   }
 
+  handleCheckboxChange = (chechedCv, isChecked) => {
+    const { candidatesData } = this.state;
+    let clonedCandidatesData = Object.assign([], candidatesData);
+    let currentCandidate = candidatesData.find(data => data.cv === chechedCv);
+    currentCandidate = {...currentCandidate, isChecked: !isChecked};
+    candidatesData.forEach((data,index) => {
+      if(data.cv===chechedCv) {
+        clonedCandidatesData[index] = currentCandidate;
+      }
+    })
+    this.setState({ candidatesData: clonedCandidatesData });
+  }
+
   render() {
     const { isLoading, candidatesData } = this.state;
     if(isLoading){
@@ -52,7 +66,7 @@ class List extends Component {
         <div className="list-candidate">
           {
             candidatesData.map((data, index) => { 
-              const { recent_company, skills, email, name, cv, phone_number } = data;
+              const { recent_company, skills, email, name, cv, phone_number, isChecked = false } = data;
               return(
                 <Fragment>
                   <div className="shadow p-3 mt-2 mb-2 bg-white rounded row candidate-row align-items-center">
@@ -69,6 +83,7 @@ class List extends Component {
                       </div>
                     </div>
                     <div className="checkbox-div col-1">
+                      <input type="checkbox" checked={isChecked} onChange={() => this.handleCheckboxChange(cv, isChecked)} />
                     </div>
                     <div className="col-3 text-right">
                       <Button className="view-resume-button">

@@ -10,7 +10,6 @@ class SideBarComponent extends Component {
 
     render() {
       return (
-
         <div className="dashboard-sidebar">
           <div className="user-info">
           </div>
