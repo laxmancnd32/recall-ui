@@ -8,19 +8,20 @@ class TotalInterviews extends Component {
         <div className="col-md-10 offset-md-1">
           <div className="row dashboard-section user-statistic-block ">
             <div className="user-statistic col">
-            <i class="fa fa-clock-o fa-4x floatleft" aria-hidden="true"></i>
+            <i class="fa fa-clock-o fa-3x floatleft" aria-hidden="true"></i>
               <h3>132</h3>
-              <span>Companies Viewed</span>
+              <span>Total Jobs</span>
             </div>
             <div className="user-statistic col">
-            <i class="fa fa-heart-o fa-4x floatleft" aria-hidden="true"></i>
+            <i class="fa fa-heart-o fa-3x floatleft" aria-hidden="true"></i>
               <h3>32</h3>
-              <span>Favourite Jobs</span>
+              <span>Total Candidates</span>
             </div>
             <div className="user-statistic col">
-            <i class="fa fa-briefcase fa-4x floatleft" aria-hidden="true"></i>
+            <i class="fa fa-briefcase fa-3x
+             floatleft" aria-hidden="true"></i>
               <h3>12</h3>
-              <span>Applied Jobs</span>
+              <span>Selected Candidates</span>
             </div>
           </div>
         </div>        
