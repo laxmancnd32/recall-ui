@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Table, Button } from 'react-bootstrap';
 
 const JobsTableComponent = props => {
-    const { tableData, redirectToInterviews } = props;
+    const { tableData } = props;
     return (
      <div className="table-component padding">
         <Table className="table">
@@ -19,8 +19,9 @@ const JobsTableComponent = props => {
             </thead>
             <tbody>
               {tableData.map((data, index) => {
-                const { job_pub_id, title, description, status, total_candidates, job_id } = data;
+                const { job_pub_id, title, description, status, total_candidates, job_id, screening } = data;
                 const statusData = status? 'open': 'closed';
+                const redirectPage = screening === 0 ? '/list-candidates/'+job_id : '/interview-status/'+job_id
                 return (
                   <Fragment>
                     <tr key={index}>
@@ -30,7 +31,7 @@ const JobsTableComponent = props => {
                       <td>{description}</td>
                       <td>{statusData}</td>
                       <td>{total_candidates}</td>
-                      <td><Button onClick={redirectToInterviews(job_id)}>Show</Button></td>
+                      <td><a href={redirectPage} className="btn btn-primary btn-sm">Show</a></td>
                     </tr>
                   </Fragment>
                 );
