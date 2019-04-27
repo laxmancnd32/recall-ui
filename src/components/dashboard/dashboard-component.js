@@ -3,8 +3,6 @@ import DashBoardInfo from './components/dashboard-info-component';
 import { baseUrl } from '../../base-url';
 import LoaderComponent from '../loader';
 
-import "./dashboard.scss";
-
 class Dashboard extends Component {
   constructor(props) {
     super(props);
