@@ -71,12 +71,16 @@ class Jobs extends Component {
       }).then(response => {
         if(response) {
           const { job_id } = response;
-          history.push({pathname:'/list-candidates/'+job_id, job_id});
+          history.push({pathname:'/list-candidates/'+job_id});
         }
       })
     }
   };
 
+  redirectToInterviews = job_id => {
+    const { history } = this.props;
+    history.push({ pathname: '/list-candidates/'+job_id});
+  };
   render() {
     const { showModal, isLoading, tableData } = this.state;
     if(isLoading){
@@ -88,7 +92,7 @@ class Jobs extends Component {
             Post a job
           </Button>
           <ModalComponent showModal={showModal} handleCloseModal={this.handleCloseModal} handleInputChange={this.handleInputChange} handleSaveClick={this.handleSaveClick} />
-          <JobsTableComponent tableData={tableData}/>
+          <JobsTableComponent tableData={tableData} redirectToInterviews={this.redirectToInterviews}/>
         </div>
     );
     }
