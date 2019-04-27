@@ -1,0 +1,3 @@
+.table-borderless th, .table-borderless thead th {
+    padding: 10px;
+}

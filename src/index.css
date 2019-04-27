@@ -18,3 +18,9 @@ a:focus {
   color: inherit;
   outline: none;
 }
+.table thead {
+    font-weight: bold;
+}
+.table tbody {
+    font-size: 13px;
+}
