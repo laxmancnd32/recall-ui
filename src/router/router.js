@@ -16,7 +16,7 @@ import {
         <Router history={createBrowserHistory()}>
           <AppContainer history = {createBrowserHistory()}>
             <Switch>
-              <Route path="/dashboard" component={Dashboard} />
+              <Route exact path="/" component={Dashboard} />
               <Route exact path="/jobs" component={Jobs} />
               <Route exact path="/interview-pool" component={Interviews} />
               <Route exact path="/list-candidates/:job_id" component={ListCandidates} />
