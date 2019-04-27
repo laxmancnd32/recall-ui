@@ -18,7 +18,6 @@ class AppContainer extends Component {
             <SideBarComponent/>
           </div>
           <div className="col-md-10">
-             
             <PageContainerComponent history={history}>
                 {children}
             </PageContainerComponent>   
