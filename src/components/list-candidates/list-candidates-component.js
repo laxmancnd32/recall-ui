@@ -57,6 +57,10 @@ class List extends Component {
     this.setState({ candidatesData: clonedCandidatesData });
   }
 
+  handleSendEmail =()=> {
+    const { candidatesData } = this.state;
+    const selectedCandidate = candidatesData.filter(candidate => candidate.isChecked === true);
+  };
   render() {
     const { isLoading, candidatesData } = this.state;
     if(isLoading){
@@ -64,6 +68,11 @@ class List extends Component {
     }else {
     return (
         <div className="list-candidate">
+          <div className="row">
+            <div className="send-email-row col">
+              <Button className="float-right sendemail" onClick={this.handleSendEmail}>Send Email</Button>
+            </div>
+          </div>
           {
             candidatesData.map((data, index) => { 
               const { recent_company, skills, email, name, cv, phone_number, isChecked = false } = data;
@@ -86,7 +95,7 @@ class List extends Component {
                       <input type="checkbox" checked={isChecked} onChange={() => this.handleCheckboxChange(cv, isChecked)} />
                     </div>
                     <div className="col-3 text-right">
-                      <Button className="view-resume-button">
+                      <Button>
                         <a href="#">View Resume</a>
                       </Button>
                     </div>
