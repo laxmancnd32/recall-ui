@@ -54,7 +54,7 @@ class Jobs extends Component {
   handleSaveClick = () => {
     const { history } = this.props;
     const { jobTitle = '', jobDescription = '' } = this.state;
-    if(jobTitle !== '' && jobDescription!== '') {
+    if(jobTitle !== '' && jobDescription.length >= 300) {
       const payload = {
         'title': jobTitle,
         'description': jobDescription
@@ -70,8 +70,12 @@ class Jobs extends Component {
         return res.json();
       }).then(response => {
         if(response) {
-          const { job_id } = response;
-          history.push({pathname:'/list-candidates/'+job_id, job_id});
+          const { job_id, screening } = response;
+          if(screening === 0){
+            history.push({ pathname:'/list-candidates/'+job_id, job_id });
+          } else if(screening === 1){
+            history.push({ pathname: '/interview-status' })
+          }
         }
       })
     }

@@ -10,6 +10,7 @@ import {
   import Interviews from '../components/interviews';
   import PageNotFound from '../components/page-not-found/page-not-found-component';
   import ListCandidates from '../components/list-candidates';
+  import InterviewStatus from '../components/interview-status';
   import AppContainer from '../components/app-container';
   const ApplicationRouter = () => {
       return (
@@ -19,6 +20,7 @@ import {
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/jobs" component={Jobs} />
               <Route exact path="/interview-pool" component={Interviews} />
+              <Route exact path="/interview-status" component={InterviewStatus} />
               <Route exact path="/list-candidates/:job_id" component={ListCandidates} />
               <Route component={PageNotFound} />
             </Switch>

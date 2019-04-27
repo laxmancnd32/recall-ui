@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { baseUrl } from '../../base-url';
 import LoaderComponent from '../loader';
 import "./listCandidate.scss";
+
 class List extends Component {
   constructor(props) {
     super(props);
@@ -10,24 +11,7 @@ class List extends Component {
     this.state = {
       isLoading: true,
       isChecked: false,
-      candidatesData: [
-        {
-        'recent_company': 'no experience',
-        'email': 'rishiankit9@gmail.com',
-        'phone_number': '8553320433',
-        'skills': 'java, css, php',
-        'name': 'Swarna Mishra',
-        'cv': 'file.pdf'
-        },
-        {
-        'recent_company': 'no experience',
-        'email': 'swaruMishra@gmail.com',
-        'phone_number': '9148405826',
-        'skills': 'react, redux, php',
-        'name': 'Rishabh Mishra',
-        'cv': 'file191.pdf'
-      }
-    ]
+      candidatesData: [{}]
     };
   }
 
@@ -40,26 +24,63 @@ class List extends Component {
       method: 'GET'
     }).then(res=> res.json()
     ).then(response =>{
-      this.setState({isLoading: false});
+      this.setState({ candidatesData: response, isLoading: false});
     })
   }
 
   handleCheckboxChange = (chechedCv, isChecked) => {
     const { candidatesData } = this.state;
     let clonedCandidatesData = Object.assign([], candidatesData);
-    let currentCandidate = candidatesData.find(data => data.cv === chechedCv);
+    let currentCandidate = candidatesData.find(data => data.cv_filename === chechedCv);
     currentCandidate = {...currentCandidate, isChecked: !isChecked};
     candidatesData.forEach((data,index) => {
-      if(data.cv===chechedCv) {
+      if(data.cv_filename===chechedCv) {
         clonedCandidatesData[index] = currentCandidate;
       }
     })
     this.setState({ candidatesData: clonedCandidatesData });
   }
 
+  formatPayload = selectedCandidate => {
+   return selectedCandidate.map(candidate => {
+      const { email, recent_company, gender, phone_number, programming_languages, name, rank, cv_filename} = candidate;
+      return {
+        email, 
+        recent_company, 
+        gender, 
+        phone_number, 
+        programming_languages, 
+        name, 
+        rank, 
+        cv_filename
+      }
+    });
+  };
+
   handleSendEmail =()=> {
+    const { match, history } = this.props;
+    const { job_id } = match.params;
     const { candidatesData } = this.state;
     const selectedCandidate = candidatesData.filter(candidate => candidate.isChecked === true);
+    const formattedSelectedCandidate = this.formatPayload(selectedCandidate);
+    const sendEmailUrl = baseUrl+'/api/v1/job-candidate';
+    fetch(sendEmailUrl, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        job_id,
+        candidates: JSON.stringify(formattedSelectedCandidate)
+      })
+    }).then(res=> {
+      return res.json();
+    }).then(response => { 
+        const { message = '' } = response;
+        if(message === 'Added'){
+          history.push({ pathname: '/interview-status'});
+        }
+    });
   };
   render() {
     const { isLoading, candidatesData } = this.state;
@@ -75,7 +96,10 @@ class List extends Component {
           </div>
           {
             candidatesData.map((data, index) => { 
-              const { recent_company, skills, email, name, cv, phone_number, isChecked = false } = data;
+              const { recent_company, programming_languages = [], email = '', name = '', cv_filename = '', phone_number = [], rank, isChecked = false } = data;
+              const skills = programming_languages.join();
+              const phone = phone_number.join();
+              const trimmedName = name.trim();
               return(
                 <Fragment>
                   <div className="shadow p-3 mt-2 mb-2 bg-white rounded row candidate-row align-items-center">
@@ -83,16 +107,17 @@ class List extends Component {
                       <i class="fa fa-user-circle-o fa-fw fa-3x"></i>
                     </div>
                     <div className="col-3">
-                      <h4>{name}</h4>
+                      <h4>{trimmedName === ''? 'Not Availablle': name}</h4>
                     </div>
                     <div className="col-4">
                       <div className="info">
-                        <div className="location"><i class="fa fa-envelope fa-fw"></i> {email}</div>
-                        <div className="work-post"><i class="fa fa-book fa-fw"></i> {skills}</div>
+                        <div className="location"><i className="fa fa-envelope fa-fw"></i>{email}</div>
+                        <div className="work-post"><i className="fa fa-book fa-fw"></i> {skills}</div>
+                        <div className="phone-number"><i className="fa fa-mobile fa-fw" aria-hidden="true"></i>{phone}</div>
                       </div>
                     </div>
                     <div className="checkbox-div col-1">
-                      <input type="checkbox" checked={isChecked} onChange={() => this.handleCheckboxChange(cv, isChecked)} />
+                      <input type="checkbox" checked={isChecked} onChange={() => this.handleCheckboxChange(cv_filename, isChecked)} />
                     </div>
                     <div className="col-3 text-right">
                       <Button>
