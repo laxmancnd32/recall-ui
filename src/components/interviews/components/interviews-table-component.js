@@ -6,7 +6,7 @@ const InterviewsTableComponent = props => {
   
     return (
      <div className="table-component">
-        <Table striped bordered hover>
+        <Table className="table">
             <thead>
                 <tr>
                     <th>#</th>
@@ -26,7 +26,7 @@ const InterviewsTableComponent = props => {
                 return (
                   <Fragment>
                     <tr key={index}>
-                      <td>{index}</td>
+                      <td>{index+1}</td>
                       <td>{interviewer_id}</td>
                       <td>{first_name}</td>
                       <td>{last_name}</td>

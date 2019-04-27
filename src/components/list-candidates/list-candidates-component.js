@@ -60,7 +60,7 @@ class List extends Component {
                       <i class="fa fa-user-circle-o fa-fw fa-3x"></i>
                     </div>
                     <div className="col-3">
-                      <h4><a href="candidate-details.html">{name}</a></h4>
+                      <h4>{name}</h4>
                     </div>
                     <div className="col-4">
                       <div className="info">

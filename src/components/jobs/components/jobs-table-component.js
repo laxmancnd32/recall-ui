@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Table } from 'react-bootstrap';
-import './table.css'
+
 const JobsTableComponent = props => {
     const { tableData } = props;
     return (
