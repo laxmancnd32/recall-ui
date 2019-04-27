@@ -1,29 +1,40 @@
 import React, { Component } from 'react';
-import TotalInterviews from './components/total-interviews-component';
+import DashBoardInfo from './components/dashboard-info-component';
+import { baseUrl } from '../../base-url';
+import LoaderComponent from '../loader';
+
 import "./dashboard.scss";
-
-
-const initialState = {
-  sampleState: 'testValue'
-};
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = initialState;
+    this.state = {
+      dashboardData: [],
+      isLoading: true
+    };
   }
 
   componentDidMount() {
-    const { actions } = this.props;
-    actions.getDashboardInfo();
-    this.setState({ testState: 'afas'});
+    const dashboardUrl = baseUrl+'/api/v1/dashboard';
+    fetch(dashboardUrl,{
+      method: 'GET'
+    }).then(res => {
+      return res.json();
+    }
+    ).then(response=>{
+      this.setState({dashboardData: response,isLoading:false});
+    });
   }
   render() {
-    // eslint-disable-next-line
-    const props = this.props;
-    return (
-        <TotalInterviews />
-    );
+    const { isLoading, dashboardData } = this.state;
+    
+    if(isLoading) {
+      return (<LoaderComponent />);
+    } else{
+      return (
+        <DashBoardInfo dashboardData={dashboardData}/>
+      );
+    }
   }
 }
 
