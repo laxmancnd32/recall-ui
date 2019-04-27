@@ -9,7 +9,7 @@ const JobsTableComponent = props => {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
+                    <th>Job Id</th>
                     <th>Job</th>
                     <th>Description</th>
                     <th>Status</th>
@@ -23,7 +23,7 @@ const JobsTableComponent = props => {
                 return (
                   <Fragment>
                     <tr key={index}>
-                      <td>{index}</td>
+                      <td>{index+1}</td>
                       <td>{job_pub_id}</td>
                       <td>{title}</td>
                       <td>{description}</td>

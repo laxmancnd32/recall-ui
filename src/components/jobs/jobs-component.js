@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import JobsTableComponent from './components/jobs-table-component';
 import ModalComponent from './components/modal-component';
 import LoaderComponent from '../loader';
+import { baseUrl } from '../../base-url';
 import "./jobs.scss";
 
 class Jobs extends Component {
@@ -13,44 +14,22 @@ class Jobs extends Component {
       showModal: false,
       jobTitle: '',
       jobDescription: '',
-      isLoading: false,
-      tableData: [
-        {
-          "job_pub_id": "JOB0000001",
-          "title": "Python Developer",
-          "description": "Dev",
-          "status": true,
-          "total_candidates": 0
-          },
-          {
-            "job_pub_id": "yuwefwe",
-            "title": "React Developer",
-            "description": "Dev",
-            "status": true,
-            "total_candidates": 0
-            },
-            {
-              "job_pub_id": "yuwefwe",
-              "title": "selinium Tester",
-              "description": "tester",
-              "status": true,
-              "total_candidates": 0
-              }
-        ]
+      isLoading: true,
+      tableData: [{}]
     };
   }
 
   componentDidMount() {
-    // const tableDataUrl = 'http://35.225.151.186/api/v1/jobs';
+    const tableDataUrl = baseUrl+'/api/v1/jobs';
 
-    // fetch(tableDataUrl,{
-    //   method: 'GET'
-    // }).then(res => res.json()
-    // ).then(response=>{
-    //   console.log(response);
-    //   this.setState({tableData: response});
-    // });
-
+    fetch(tableDataUrl,{
+      method: 'GET'
+    }).then(res => {
+      return res.json();
+    }
+    ).then(response=>{
+      this.setState({tableData: response,isLoading:false});
+    });
   }
 
   handleCloseModal = () => {
@@ -73,11 +52,28 @@ class Jobs extends Component {
     
   };
   handleSaveClick = () => {
+    const { history } = this.props;
     const { jobTitle, jobDescription } = this.state;
     const payload = {
-      jobTitle,
-      jobDescription
+      'title': jobTitle,
+      'description': jobDescription
     }
+    const saveJobUrl = baseUrl+"/api/v1/jobs";
+    fetch(saveJobUrl, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(payload)
+    }).then(res=> {
+      return res.json();
+    }).then(response => {
+      if(response) {
+        console.log(response);
+        const { job_id } = response;
+        history.push({pathname:'/list-candidates/'+job_id, job_id});
+      }
+    })
   };
 
   render() {
